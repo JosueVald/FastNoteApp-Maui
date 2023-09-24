@@ -1,0 +1,16 @@
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:FastNoteApp"
+            xmlns:views="clr-namespace:FastNoteApp.Views"
+            x:Class="FastNoteApp.AppFlyout">
+    <FlyoutPage.Flyout>
+        <views:MenuPage x:Name="menuPage" />
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:MainPage />
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

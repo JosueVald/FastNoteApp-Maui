@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastNoteApp.Views.MainPage"
+             Title="My Note">
+    
+    <ContentPage.ToolbarItems>
+<!--        <ToolbarItem Clicked="Search_Clicked" IconImageSource="glass1.png" /> -->
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0"
+                x:Name="mainContent"
+                ItemsSource="{Binding noteList}"
+                Margin="10, 10"
+                SelectionMode="Single"
+                SelectionChanged="mainContent_SelectionChanged">
+
+            <!-- Designate how the collection of items are laid out -->
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+
+            <!-- Define the appearance of each item in the list -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="60, 15, 10">
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding description}" MaxLines="1" FontSize="22" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Text="{Binding dateTime}"  FontSize="14" TextColor="Black" HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="Center"/>
+                        <BoxView Grid.Row="2" Grid.Column="1" Color="Gray"  HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="0"
+                BackgroundColor="{StaticResource Primary}"
+                Clicked="PlusButton_Clicked"
+                HeightRequest="60"
+                WidthRequest="60"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                CornerRadius="30"
+                FontSize="30"
+                Text="+"
+                Margin="0,0,20,22">
+
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.5"/>
+            </Button.Shadow>
+        </Button>
+
+    </Grid>
+    
+</ContentPage>

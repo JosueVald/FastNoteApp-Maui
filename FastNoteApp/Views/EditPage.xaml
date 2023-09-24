@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastNoteApp.Views.EditPage"
+             Title="Fast Notepad">
+    
+    <NavigationPage.TitleView>
+        <Label x:Name="title" Text="Fast Notepad" MaxLines="1" TextColor="White" FontSize="30" VerticalOptions="Center" />
+    </NavigationPage.TitleView>
+
+    <!-- Add an item to the toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_delete_forever_white.png" Clicked="Delete_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <VerticalStackLayout>
+        <Editor
+            x:Name="textEditor"
+            Text="{Binding content}"
+            FontSize="22"
+            TextColor="black"
+            AutoSize="TextChanges"
+        />
+    </VerticalStackLayout>
+</ContentPage>
